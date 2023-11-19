@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{%block content%}
+    {%for i in data%}
+    <br>
+        <div class="card" style="width: 18rem;">
+            
+            {% comment %} <img src={{i.rest_image}} class="card-img-top" alt="..."> {% endcomment %}
+            <div class="card-body bg-light top">
+            <h5 class="card-title">{{i.rest_name}}</h5>
+            <p class="card-text description">{{i.rest_description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{i.rest_icon}}</li>
+             <p class="rating"><i class="fa-solid fa-star icon"></i>{{i.rest_rating}}</p>
+            {% comment %} <li class="list-group-item">A third item</li> {% endcomment %}
+            </ul>
+            <div class="card-body">
+            <a href="{% url "register" %}" class="card-link review">Review</a>
+            <a href="{% url "update" %}" class="card-link review">update rating</a>
+            <form method='post' class="review" action='{% url "fav" %}'>
+                {% csrf_token %}<button type="submit" name="rest_id" class="card-link btn fav btn-dark" value={{i.id}}>Favourite</button></form>
+            </div>
+        </div>
+        <br>
+    {% empty%}
+    no restaurant found
+    {% endfor %}
+{%endblock content%}
+
+
+
+
+
+
+
+
+{% comment %} 
+
+<h1></h1>
+
+<br>
+
+ {% endcomment %}

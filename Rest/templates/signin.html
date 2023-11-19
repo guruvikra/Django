@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <script
+  src="https://kit.fontawesome.com/83a6740aac.js"
+  crossorigin="anonymous"
+></script>
+
+</head>
+<body class="loginBody">
+  <div class="parent">
+    <p class="name">
+      <span class="span">C</span>ravings
+    </p>
+    <div class="signup">
+      <i class="fa-solid fa-utensils icon"></i>
+      <h2 class="headText">Welcome back</h2>
+
+    <form class="form" method="POST" >
+        {% csrf_token %}
+        <input
+          autoComplete="off"
+          name="username"
+          class="input"
+          placeholder="username"
+        />
+        <input
+          name="password"
+          class="input"
+          placeholder="password"
+          autoComplete="off"
+        />
+        <button class="btn">Login</button>
+        <p class="text">
+          <a href="{% url "signup" %}">Signup instead</a>
+        </p>
+      </form>
+    </div>
+</body>
+</html>

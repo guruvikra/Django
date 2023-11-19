@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name"viewport" content="width=device-width, initial-scale=1.0">
+    <title>restaurant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body class="baseBody">
+    <div class='parent'>
+        <div class='inner'>
+            <div class="menu">
+                <i class="fa-solid fa-right-to-bracket icon"></i>
+                <button class="btn btn-black"><a class="link" href="{% url "signin" %}">Sign In</a></button>
+            </div>
+            <div class="menu">
+                <i class="fa-solid fa-right-to-bracket icon"></i>
+               <button class="btn btn-black"><a class="link" href="{% url "signup" %}">Sign Up</a></button>
+            </div>
+            <div class="menu">   
+                <i class="fa-solid fa-toolbox icon"></i>
+               <button class="btn btn-black"><a class="link" href='http://127.0.0.1:8000/admin/login/?next=/admin/'>Admin</a></button>
+            </div>    
+        </div>
+            <p class="name">C<span>ravings</span></p>
+            <i class="fa-solid fa-utensils icon"></i>
+    </div>
+</body>
+</html>

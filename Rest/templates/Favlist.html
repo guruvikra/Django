@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{%block content%}
+
+    {%for i in data%}
+        {%for  j in i%}
+                {% comment %} <img src={{i.rest_image}} class="card-img-top" alt="..."> {% endcomment %}
+                <div class="card" style="width: 18rem;">
+                    {% comment %} <img src={{i.rest_image}} class="card-img-top" alt="..."> {% endcomment %}
+                    <div class="card-body bg-light top">
+                    <h5 class="card-title">{{j.rest_name}}</h5>
+                    <p class="card-text description">{{j.rest_description}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{j.rest_icon}}</li>
+                     <p class="rating"><i class="fa-solid fa-star icon"></i>{{j.rest_rating}}</p>
+                    {% comment %} <li class="list-group-item">A third item</li> {% endcomment %}
+                    </ul>
+                    <div class="card-body">
+                    <a href="/favremove/{{j.id}}" class="card-link review">Review</a>
+                    <form action="{% url "favremove" %}" method="post">{% csrf_token %}<button type="submit" name="rest_id" class="card-link btn fav btn-dark" value={{j.id}}>Remove</button></form>
+                    {% comment %} <form method='post' class="review" action='{% url "fav" {{j.id}}%}'>
+                        {% csrf_token %}<button type="submit" name="rest_id" class="card-link btn fav btn-dark" value={{j.id}}>Favourite</button></form> {% endcomment %}
+                    </div>
+                </div>
+            {%endfor%}
+    {%endfor%}
+</div>
+{%endblock content%}

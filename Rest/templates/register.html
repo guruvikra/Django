@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{%block content%}
+        <form method='post' class="review" action='{% url "Savereviews" %}'>
+            {% csrf_token %}
+        <div class="card" style="width: 18rem;">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">User name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="User name"  name="username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Restaurant name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Restaurant name"  name="name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Rating</label>
+                <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="" min="1" max="5" name="rate">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Review</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="review"></textarea>
+               <center><button class='btn btn-dark' type='submit'>Add</button></center>
+            </div>
+        </div>
+        <form>
+{% endblock content%}
